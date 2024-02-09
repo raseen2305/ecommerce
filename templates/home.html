@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+	<div class="container" id="topdiv4">
+		<div class="row">
+			{% if products %}
+				{% for product in products %}
+					<div class="col-md-4">
+						<div class="card">
+							<img src="https://cdn.discordapp.com/attachments/1008571122889011290/1204118946391785512/marianeuro8_couverts_fourchette_comic_rigolo_7aa98ec2-2093-43f5-a0d6-3bf0ef306756.png?ex=65d39228&is=65c11d28&hm=0db7e4324827d1114a7ae01b2d90d4df6b907a07d393f35e691e379fbc8039a4&" class="card-img-top" alt="{{ product.name }}">
+							<div class="card-body">
+								<h5 class="card-title">{{ product.name }}</h5>
+								<p class="card-text">{{ product.description }}</p>
+								<p class="card-text">Price: {{ product.price }}</p>
+								<p class="card-text">Reviews: {{ product.reviews }}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="col-md-12">
+					<p>No products available.</p>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

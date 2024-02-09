@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Responsive Box Model Using CSS Flex</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #ADD8E6;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; 
+        }
+
+        .card {
+            background: white;
+            width: 270px;
+            height: 600px;
+            margin: 10px;
+            border-radius: 15px;
+            overflow: hidden; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s ease;
+            text-align:center; /* Center align the content within the card */
+            
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover; 
+            border-radius: 15px 15px 0 0;
+        }
+
+        .card-content {
+            padding: 10px;
+        }
+
+        .card-content h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .card:hover {
+            background-color: rgb(62, 62, 62);
+            color: white;
+            cursor: pointer;
+            transform: scale(1.03);
+        }
+
+        .navbar {
+
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+            width: 100%;
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+        }
+        .search-input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 200px;
+            font-size: 16px;
+            background-color: #f2f2f2;
+            margin-right: 10px;
+        }
+
+        .navbar input[type=text] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 200px;
+            font-size: 16px;
+            background-color: #f2f2f2;
+            margin-right: 10px;
+        }
+
+        .navbar input[type=submit] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .navbar-text {
+
+            color: white;
+            font-size: 18px;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .custom1-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; 
+    text-decoration: none; 
+}
+
+.custom1-button:hover {
+    background-color: #007bff;
+}
+.custom2-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; 
+    text-decoration: none; 
+    
+}
+
+.custom2-button:hover {
+    background-color: #007bff;
+}
+.custom3-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; 
+    text-decoration: none; 
+}
+
+.custom3-button:hover {
+    background-color: #007bff;
+}
+.custom4-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; 
+    text-decoration: none; 
+}
+
+.custom4-button:hover {
+    background-color: #007bff;
+}
+.custom5-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; 
+    text-decoration: none; 
+}
+
+.custom5-button:hover {
+    background-color: #007bff;
+}
+.custom6-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; 
+    text-decoration: none; 
+}
+
+.custom6-button:hover {
+    background-color: #007bff;
+}
+.custom7-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+.custom7-button:hover {
+    background-color: #007bff;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <span class="navbar-text">JUST SHOP!</span>
+    <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+    <input type="submit" value="Search">
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="imgBx">
+            <img src="https://m.media-amazon.com/images/I/41CnCbbxrZL._SX300_SY300_QL70_FMwebp_.jpg" height="300px" width="270px">
+        </div>
+        <div class="content">
+            <h2>Lenovo IdeaPad Gaming 3</h2>
+            <p>Lenovo IdeaPad Gaming 3 Intel Core i5 12450H 15.6" (39.62cm) FHD IPS 120Hz Gaming Laptop (16GB/512GB SSD/Win11/Office 2021/NVIDIA RTX 3050 4GB/Alexa/3 Month Game Pass/Onyx Grey/2.3Kg), 82S9017TIN</p>
+            <button class="custom1-button"><a href="{{ url_for('laptopdescription')}}" style="text-decoration: none; color: white;">More info</a></button>
+        </div>
+        
+    </div>
+    <div class="card">
+        <div class="imgBx">
+            <img src="https://m.media-amazon.com/images/I/712+H1IHbML._SL1500_.jpg" height="300px" width="270px">
+        </div>
+        <div class="content">
+            <h2>Fastrack FS1 Pro Smartwatch</h2>
+            <p>Fastrack FS1 Pro Smartwatch with AOD|World’s First 1.96" Super AMOLED Arched Display with Highest Resolution of 410x502|SingleSync BT Calling|NitroFast Charging|110+ Sports Modes|200+ Watchfaces</p>
+            <button class="custom2-button"><a href="{{ url_for('smartwatch')}}" style="text-decoration: none; color: white;">More info</a></button>
+
+        
+        </div>
+    </div>       
+    <div class="card">
+        <div class="imgBx">
+            <img src="https://m.media-amazon.com/images/I/51fQqVo+vjL._SX679_.jpg" height="300px" width="270px">
+        </div>
+        
+        <div class="content">
+            <h2> Vega hair dryer</h2>
+            <p>Vega Hair Dryer for Women With Cool Shot Button & 3 Heat Settings, 2100W Blow Dryer, (VHDH-25)</p>
+            <button class="custom3-button"><a href="{{ url_for('hairdyer')}}" style="text-decoration: none; color: white;">More info</a></button>
+        
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgBx">
+            <img src="https://i.etsystatic.com/27136606/r/il/63e952/3016271002/il_1588xN.3016271002_fpd4.jpg" height="300px" width="270px">
+            
+        </div>
+        
+        <div class="content">
+            <h2>Deadpool Sneakers</h2>
+
+            <p>light weight,unique,fits Perfect for both men and women,all sizes available</p>
+            <button class="custom4-button"><a href="{{ url_for('sneakers')}}" style="text-decoration: none; color: white;">More info</a></button>
+        
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgBx">
+            <img src="https://th.bing.com/th/id/OIF.lsZ8DmhwoBYRwpYPgU0UxA?rs=1&pid=ImgDetMain" height="300px" width="270px">
+            
+        </div>
+        
+        <div class="content">
+            <h2>Electric Toothbrush</h2>
+            <p>light weight,unique,less noise,1 year warranty,unisex,comes with stand</p>
+            <button class="custom5-button"><a href="{{ url_for('brush')}}" style="text-decoration: none; color: white;">More info</a></button>
+        
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgBx">
+            <img src="https://th.bing.com/th/id/OIP.lE2v5J5of1JZWxuVgsNL-AHaHa?rs=1&pid=ImgDetMain" height="300px" width="270px">
+        </div>
+        
+        <div class="content">
+            <h2>clear water bottle</h2>
+            <p>2 litre water bottle for every day use,light and convinient to use,sturdy and eco friendly bottle</p>
+            <button class="custom6-button"><a href="{{ url_for('bottle')}}" style="text-decoration: none; color: white;">More info</a></button>
+        
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgBx">
+            <img src="https://th.bing.com/th/id/OIP.PIhhLjuJfevljoLJ0jbSagHaIf?rs=1&pid=ImgDetMain" height="300px" width="270px">
+            
+        </div>
+        
+        <div class="content">
+            <h2>multi purpose kettle</h2>
+            <p>This product is very useful for hostel students,low power consumption,extremly durable</p>
+            <button class="custom7-button"><a href="{{ url_for('kettle')}}" style="text-decoration: none; color: white;">More info</a></button>
+
+<script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+        var searchText = this.value.toLowerCase();
+        var cards = document.querySelectorAll('.card');
+
+        cards.forEach(function (card) {
+            var cardText = card.textContent.toLowerCase();
+            if (cardText.includes(searchText)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
